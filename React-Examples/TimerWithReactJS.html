@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Plain JS Timer</title>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    </head>
+    
+    <body>
+        <div id="root"></div>
+
+        <script type="text/javascript">
+
+            class Time extends React.Component {
+                constructor(props){
+                    super(props)
+                    this.state = {
+                        seconds: 0
+                    }
+                }
+
+                tick() {
+                    this.setState(state => ({
+                        seconds: state.seconds + 1
+                    }))
+                }
+
+                componentDidMount(){
+                    setInterval(
+                        () => this.tick(),
+                        1000
+                    )
+                }
+
+                render(){
+                    return React.createElement("div", null, [
+                        React.createElement("h1", null, "Hello World!"),
+                        React.createElement("h2", null, `It has been ${this.state.seconds} seconds.`)
+                    ])
+                }
+
+
+            }
+
+            ReactDOM.render(
+                React.createElement(Time),
+                document.getElementById("root")
+            )
+        </script>
+    </body>
+</html>

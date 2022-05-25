@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Plain JS Timer</title>
+    </head>
+    
+    <body>
+        <div id="root"></div>
+
+        <script type="text/javascript">
+            let timer = 1
+
+            setInterval(() => {
+                timer = timer + 1
+
+                document.getElementById("root").innerHTML = 
+                    `
+                        <div>
+                            <h1>Hello World!</h1>
+                            <h2>It has been ${timer} seconds.</h2>
+                        </div>
+                    `
+
+            } , 1000)
+        </script>
+    </body>
+</html>
+
+
+
+
+
